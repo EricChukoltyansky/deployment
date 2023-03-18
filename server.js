@@ -4,10 +4,10 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 app.get("/api", (req, res) => {
@@ -15,7 +15,6 @@ app.get("/api", (req, res) => {
 });
 
 app.listen(5000, () => console.log("Listening on port 5000..."));
-
 
 // git init
 // git add README.md
