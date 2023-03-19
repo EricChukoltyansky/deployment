@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
 function App() {
+  const api = process.env === "production" ? "" : "http://localhost:5000";
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("/api")
+    console.log("api", api);
+    fetch(`${api}/api`)
       .then((res) => res.json())
       .then((data) => setUsers(data.users));
-  }, []);
+  }, [api]);
 
   return (
     <div className="App">
