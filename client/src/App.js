@@ -3,26 +3,22 @@ import { useEffect, useState } from "react";
 function App() {
   const api = process.env === "production" ? "" : "http://localhost:5000";
 
-  // const [backendData, setBackendData] = useState([{}]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch(`${api}/api`);
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setBackendData(data);
-  //   };
-  //   fetchData();
-  // }, [api]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch(`${api}/api`)
+      .then((res) => res.json())
+      .then((data) => setUsers(data.users));
+  }, [api]);
 
   return (
-    <div>
-      <h1>Frontend</h1>
-      <h2>Backend Data</h2>
-      {/* <ul>
-        {backendData.users.map((user) => (
+    <div className="App">
+      <h1>Users</h1>
+      <ul>
+        {users.map((user) => (
           <li key={user}>{user}</li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 }
