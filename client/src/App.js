@@ -16,11 +16,11 @@ function App() {
     <div>
       <h1>Frontend</h1>
       <h2>Backend Data</h2>
-      <ul>
+      {/* <ul>
         {backendData.users.map((user) => (
           <li key={user}>{user}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
