@@ -6,6 +6,7 @@ function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    console.log("api: ", api);
     fetch(`${api}`)
       .then((res) => res.json())
       .then((data) => setUsers(data.users));
