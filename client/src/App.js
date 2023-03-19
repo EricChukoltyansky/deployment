@@ -6,7 +6,10 @@ function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch(`${api}/api`)
+    fetch(`${api}`)
+      .then((res) => res.json())
+      .then((data) => setUsers(data.users));
+  }, [api]);
 
   return (
     <div className="App">
